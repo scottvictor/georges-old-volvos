@@ -37,9 +37,10 @@
             z-index: 1000;
             box-shadow: 0 2px 10px rgba(0,0,0,0.1);
             border-bottom: 3px solid var(--primary);
+            gap: 8px;
         }
 
-        section { scroll-margin-top: 44px; }
+        section { scroll-margin-top: 56px; }
 
         footer {
             background: var(--secondary);
@@ -61,9 +62,13 @@
         .cta-phone {
             background: var(--primary);
             color: var(--white);
-            padding: 0.5rem 1rem;
-            border-radius: 4px;
+            padding: 0.5rem 1.5rem;
+            border-radius: 50px;
             font-weight: bold;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            white-space: nowrap;
         }
 
         .hero {
@@ -113,7 +118,7 @@
         }
         .btn:hover { background: #c9302c; transform: translateY(-2px); }
 
-        .booking-section {
+        .contact-section {
             background: var(--white);
             padding: 4rem 5%;
             display: flex;
@@ -122,8 +127,8 @@
             gap: 4rem;
         }
 
-        .booking-info { flex: 1; min-width: 300px; max-width: 500px; }
-        .booking-form { 
+        .contact-info { flex: 1; min-width: 300px; max-width: 500px; }
+        .contact-form { 
             flex: 1; 
             min-width: 300px; 
             max-width: 500px; 
@@ -132,6 +137,22 @@
             border-radius: 8px; 
             border-top: 5px solid var(--primary);
             box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+        }
+        .contact-form label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 5px;
+            font-size: 0.9rem;
+        }
+        .contact-form input,
+        .contact-form select,
+        .contact-form textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box; /* Keeps inputs from spilling out */
         }
 
         .services { padding: 4rem 5%; text-align: center; background: var(--light); }
@@ -154,7 +175,6 @@
         .card:hover { transform: translateY(-5px); border-bottom: 4px solid var(--accent); }
         .card h3 { margin: 1rem 0; color: var(--primary); }
 
-        /* --- ABOUT SECTION --- */
         .about-section {
             padding: 5rem 5%;
             background-color: var(--white);
@@ -262,7 +282,7 @@
             border: 0;
         }
 
-        @media (max-width: 900px) {
+        @media (max-width: 900px) {            
             .about-container {
                 flex-direction: column; /* Stacks image on top of text */
                 gap: 2rem;
@@ -278,19 +298,25 @@
             header {
                 flex-direction: column; /* Stacks vertically */
                 padding: 1rem;
-                text-align: center;
+                align-items: center;
             }
 
             nav ul {
-                margin: 10px 0;
-                gap: 10px;
-                font-size: 0.9rem;
+                margin: 4px 0;
+                gap: 15px;
+                font-size: 0.95rem;
                 justify-content: center;
+                padding: 0;
+            }
+
+            section {
+                scroll-margin-top: 105px;
             }
 
             .cta-phone {
-                width: 100%; /* Makes the call button easy to tap with thumb */
-                text-align: center;
+                width: auto;
+                padding: 0.5rem 1.5rem;
+                justify-content: center;
             }
 
             .map-responsive {
@@ -299,6 +325,14 @@
         }
 
         @media (max-width: 480px) {
+            .cta-phone {
+                padding: 0.5rem 1.5rem;
+            }
+
+            section {
+                scroll-margin-top: 120px;
+            }
+
             .hero {
                 height: 60vh;
             }
@@ -307,73 +341,97 @@
                 font-size: 1.5rem;
             }
         }
+
+        .hero {
+            scroll-margin-top: 1000px;
+        }
         
     </style>
 </head>
 <body>
 
     <header>
-        <div class="logo">George's Old <span>Volvos</span></div>
+        <div class="logo">George's Old Volvos</div>
         <nav>
             <ul>
                 <li><a href="#home">Home</a></li>
                 <li><a href="#services">Services</a></li>
                 <li><a href="#about">About</a></li>
-                <li><a href="#booking">Book Online</a></li>
+                <li><a href="#contact">Contact</a></li>
             </ul>
         </nav>
-        <a href="tel:8057351231" class="cta-phone">Call (805) 735-1231</a>
+        <a href="tel:8057351231" class="cta-phone">
+            Call (805) 735-1231
+        </a>
     </header>
 
     <section class="hero" id="home">
         <h1>Factory Standard Service.</h1>
         <p>Specialized maintenance for Volvo. Our shop is a haven for Volvo enthusiasts.</p>
-        <a href="#booking" class="btn">Schedule Service</a>
+        <a href="#contact" id="hero-service-btn" class="btn">Schedule Service</a>
     </section>
 
-    <section class="booking-section" id="booking">
-        <div class="booking-info">
-            <h2 style="color: var(--primary); margin-bottom: 1rem;">Request an Appointment</h2>
-            <p>Skip the phone tag. Tell us what your vehicle needs, and we will contact you within 2 hours to confirm a time slot.</p>
-            <br>
-            <ul style="line-height: 2;">
-                <li><strong>✓</strong> Volvo Specialist Diagnostics</li>
-                <li><strong>✓</strong> Official Factory Parts (OEM)</li>
-                <li><strong>✓</strong> 3-Year / 36k Mile Warranty</li>
+    <section class="contact-section" id="contact">
+        <div class="contact-info">
+            <h2 style="color: var(--primary); margin-bottom: 1rem;">Service & Parts Inquiry</h2>
+            <p>Whether you need to schedule a repair or you're looking for a specific component from our <strong>large inventory of used Volvo parts</strong>, we're here to help.</p>
+            
+            <p style="margin-top: 1rem;">Tell us what you need, and our specialists will contact you with availability or a confirmed time slot.</p>
+            
+            <ul style="line-height: 2; margin-top: 1.5rem; list-style: none; padding: 0;">
+                <li><strong>✓</strong> Extensive Used Volvo Parts Inventory</li>
+                <li><strong>✓</strong> Factory-Level Service & Diagnostics</li>
+                <li><strong>✓</strong> 24-Month / 24k Mile Warranty</li>
             </ul>
+
+            <div style="margin-top: 2rem; padding: 1.5rem; background: #f9f9f9; border-left: 4px solid var(--primary);">
+                <p><strong>Need an immediate part check?</strong><br>
+                Just call: <a href="tel:8057351231" style="color: var(--accent); font-weight: bold;">(805) 735-1231</a></p>
+            </div>
         </div>
         
-        <div class="booking-form">
+        <div class="contact-form">
             <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
-                <h3 style="margin-bottom: 15px;">Vehicle Check-in</h3>
+                <h3 style="margin-bottom: 15px;">Send an Inquiry</h3>
                 
                 <label>Contact Name</label>
                 <input type="text" name="name" placeholder="John Doe" required>
 
-                <label>Vehicle Model & Year</label>
-                <input type="text" name="vehicle" placeholder="e.g., 2019 Volvo XC90" required>
+                <label>Email Address</label>
+                <input type="email" name="email" placeholder="john@example.com" required>
 
-                <label>Service Needed</label>
-                <select name="service">
-                    <option value="Maintenance">Regular Maintenance (Oil/Fluids)</option>
-                    <option value="Brakes">Brake Service</option>
-                    <option value="Diagnostics">Check Engine Light / Diagnostics</option>
-                    <option value="Tires">Tires / Alignment</option>
-                    <option value="Other">Other Repair</option>
+                <label>Phone Number</label>
+                <input type="tel" name="phone" placeholder="(555) 555-5555">
+
+                <label>Vehicle Model & Year</label>
+                <input type="text" name="vehicle" placeholder="e.g., 2012 Volvo S60" required>
+
+                <label>I am inquiring about:</label>
+                <select name="inquiry_type" required>
+                    <option value="Used Parts">Used Volvo Parts Availability</option>
+                    <option value="Service">Scheduling Service / Repair</option>
+                    <option value="New Parts">New OEM Parts</option>
+                    <option value="General">General Question</option>
                 </select>
 
-                <label>Preferred Date</label>
-                <input type="date" name="date">
+                <label>Details / Part Numbers</label>
+                <textarea name="details" placeholder="Describe the service needed or the specific part you're looking for..." rows="4" required></textarea>
 
-                <button type="submit" class="btn" style="width: 100%;">Request Appointment</button>
-                <p style="font-size: 0.8rem; color: #666; margin-top: 10px; text-align: center;">We will call you to confirm exact time.</p>
+                <button type="submit" class="btn" style="width: 100%; margin-top: 10px;">Submit Inquiry</button>
+                
+                <p style="font-size: 0.8rem; color: #666; margin-top: 10px; text-align: center;">We typically respond within 2 hours.</p>
             </form>
         </div>
+
     </section>
 
     <section class="services" id="services">
         <h2 class="section-title">Our Services</h2>
         <div class="grid">
+            <div class="card">
+                <h3>Genuine Used Parts</h3>
+                <p>We maintain an extensive inventory of tested, high-quality used Volvo parts. Call or email to check current availability for your model.</p>
+            </div>
             <div class="card">
                 <h3>Scheduled Maintenance</h3>
                 <p>Factory scheduled service intervals (10k, 20k, 40k) to maintain your warranty.</p>
@@ -415,8 +473,7 @@
 
                 <ul class="check-list">
                     <li><span>✓</span> ASE Master Certified Technicians</li>
-                    <li><span>✓</span> Genuine OEM Volvo & Saab Parts</li>
-                    <li><span>✓</span> Digital Inspections (We text you photos of what we find)</li>
+                    <li><span>✓</span> Genuine OEM Volvo Parts</li>
                 </ul>
             </div>
         </div>
@@ -431,7 +488,10 @@
                 <p>Volvos Repaired</p>
             </div>
             <div class="stat-item">
-                <h3>3-Year</h3>
+                <h3>2-Years</h3>
+                <span style="font-size: 0.8rem; letter-spacing: 1px; color: #888;">
+                    (or 24k Miles)
+                </span>
                 <p>Parts Warranty</p>
             </div>
         </div>
@@ -479,10 +539,27 @@
             <h4>Contact</h4>
             <ul>
                 <li>(805) 735-1231</li>
-                <li>service@georgesoldvolvo.com</li>
+                <li>service@georges-old-volvos.com</li>
             </ul>
         </div>
     </footer>
 
+    <script>
+        /* Script to focus form and set it to schedule a service */
+        document.getElementById('hero-service-btn').addEventListener('click', function(e) {
+            const inquirySelect = document.querySelector('select[name="inquiry_type"]');
+            
+            if (inquirySelect) {
+                inquirySelect.value = "Service";
+            }
+
+            setTimeout(() => {
+                const nameInput = document.querySelector('input[name="name"]');
+                if (nameInput) {
+                    nameInput.focus();
+                }
+            }, 500); // 500ms matches the typical smooth scroll time
+        });
+    </script>
 </body>
 </html>
